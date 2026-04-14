@@ -148,3 +148,11 @@ function subscribeUser() {
   const messageEl = document.getElementById("subscribeMessage");
 
   const email = emailInput.value.trim();
+
+  if (email === "") {
+    messageEl.style.display = "block";
+    messageEl.style.color = "red";
+    messageEl.textContent = "Please enter your email.";
+    setTimeout(() => messageEl.style.display = "none", 3000);
+    return;
+  }
