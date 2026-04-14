@@ -70,3 +70,14 @@ contactForm.addEventListener("submit", function (e) {
 messages.push(newMessage);
 localStorage.setItem("contactMessages", JSON.stringify(messages));
 
+successMessage.classList.remove("d-none");
+contactForm.reset();
+
+setTimeout(() => {
+  successMessage.classList.add("d-none");
+}, 3000);
+
+} else {
+  successMessage.classList.add("d-none");
+}
+});
