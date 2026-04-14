@@ -69,5 +69,20 @@ fetch('./data/data.json')
 
         </div>
       </div>
-      
+      `).join('');
+
+    function generateStars(rating) {
+      let starsHTML = "";
+      const fullStars = Math.floor(rating);
+
+      for (let i = 1; i <= 5; i++) {
+        if (i <= fullStars) {
+          starsHTML += `<i class="fa-solid fa-star"></i>`;
+        } else {
+          starsHTML += `<i class="fa-regular fa-star"></i>`;
+        }
+      }
+
+      return starsHTML;
+    }
 });
