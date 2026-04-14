@@ -96,7 +96,7 @@ fetch('./data/data.json')
       "DevOps": "fa-solid fa-gears"
     };
 
-     const colorMap = {
+    const colorMap = {
       "Web Development": "primary",
       "Data Science": "success",
       "Design": "warning",
@@ -105,6 +105,23 @@ fetch('./data/data.json')
       "DevOps": "dark"
     };
 
-     const categories = data.categories;
+    const categories = data.categories;
     const row = document.getElementById("categories-row");
-});
+
+    row.innerHTML = categories.map(cat => `
+      <div class="col-md-4 mb-4">
+        <div class="category-card text-center p-4">
+
+          <div class="icon-box">
+            <i class="${iconMap[cat.name]} text-${colorMap[cat.name]}"></i>
+          </div>
+
+          <h5 class="mt-3 fw-bold">${cat.name}</h5>
+          <p class="text-muted">${cat.count || cat.courseCount} Courses</p>
+
+        </div>
+      </div>
+    `).join('');
+
+
+  });
