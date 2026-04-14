@@ -30,4 +30,8 @@ contactForm.addEventListener("submit", function (e) {
   const subject = subjectInput.value.trim();
   const message = messageInput.value.trim();
 
-  
+  // Name
+  if (name === "") {
+    nameError.textContent = "Full name is required.";
+    isValid = false;
+  }
