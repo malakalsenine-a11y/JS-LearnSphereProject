@@ -51,4 +51,10 @@ contactForm.addEventListener("submit", function (e) {
     isValid = false;
   }
 
+  // Message
+  if (message === "") {
+    messageError.textContent = "Message is required.";
+    isValid = false;
+  }
+
   
