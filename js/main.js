@@ -96,4 +96,12 @@ fetch('./data/data.json')
       "DevOps": "fa-solid fa-gears"
     };
 
+     const colorMap = {
+      "Web Development": "primary",
+      "Data Science": "success",
+      "Design": "warning",
+      "Cybersecurity": "danger",
+      "Mobile Dev": "info",
+      "DevOps": "dark"
+    };
 });
