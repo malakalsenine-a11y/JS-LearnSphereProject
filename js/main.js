@@ -141,3 +141,10 @@ function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+
+// ===== Subscribe =====
+function subscribeUser() {
+  const emailInput = document.getElementById("emailInput");
+  const messageEl = document.getElementById("subscribeMessage");
+
+  const email = emailInput.value.trim();
