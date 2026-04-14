@@ -130,7 +130,7 @@ fetch('./data/data.json')
   });
 
 
-  // ===== Navbar Count =====
+// ===== Navbar Count =====
 function updateNavbarCount() {
   const enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
   document.getElementById("count").innerText = enrolled.length;
@@ -164,3 +164,12 @@ function subscribeUser() {
     setTimeout(() => messageEl.style.display = "none", 3000);
     return;
   }
+
+  messageEl.style.display = "block";
+  messageEl.style.color = "lightgreen";
+  messageEl.textContent = "Thank you for subscribing!";
+
+  setTimeout(() => messageEl.style.display = "none", 3000);
+
+  emailInput.value = "";
+}
