@@ -135,3 +135,9 @@ function updateNavbarCount() {
   const enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
   document.getElementById("count").innerText = enrolled.length;
 }
+
+// ===== Email Validation =====
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
