@@ -104,4 +104,7 @@ fetch('./data/data.json')
       "Mobile Dev": "info",
       "DevOps": "dark"
     };
+
+     const categories = data.categories;
+    const row = document.getElementById("categories-row");
 });
