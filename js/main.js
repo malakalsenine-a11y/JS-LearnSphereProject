@@ -128,3 +128,10 @@ fetch('./data/data.json')
 
 
   });
+
+
+  // ===== Navbar Count =====
+function updateNavbarCount() {
+  const enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+  document.getElementById("count").innerText = enrolled.length;
+}
