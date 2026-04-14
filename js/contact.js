@@ -45,4 +45,10 @@ contactForm.addEventListener("submit", function (e) {
     isValid = false;
   }
 
+  // Subject
+  if (subject === "") {
+    subjectError.textContent = "Subject is required.";
+    isValid = false;
+  }
+
   
