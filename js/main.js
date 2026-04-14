@@ -123,5 +123,8 @@ fetch('./data/data.json')
       </div>
     `).join('');
 
+    // ===== Navbar badge count =====
+    updateNavbarCount();
+
 
   });
