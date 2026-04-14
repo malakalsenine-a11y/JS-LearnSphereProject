@@ -35,3 +35,14 @@ contactForm.addEventListener("submit", function (e) {
     nameError.textContent = "Full name is required.";
     isValid = false;
   }
+
+  // Email
+  if (email === "") {
+    emailError.textContent = "Email is required.";
+    isValid = false;
+  } else if (!isValidEmail(email)) {
+    emailError.textContent = "Please enter a valid email.";
+    isValid = false;
+  }
+
+  
