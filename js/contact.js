@@ -81,3 +81,15 @@ setTimeout(() => {
   successMessage.classList.add("d-none");
 }
 });
+// ===== Helpers =====
+function clearErrors() {
+  nameError.textContent = "";
+  emailError.textContent = "";
+  subjectError.textContent = "";
+  messageError.textContent = "";
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
