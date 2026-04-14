@@ -45,7 +45,7 @@
     </div>
   </nav>
 
-  <!-- ===== Contact Section ===== -->
+<!-- ===== Contact Section ===== -->
   <section class="py-5">
     <div class="container">
       <div class="row justify-content-center">
@@ -60,7 +60,35 @@
                 <small class="text-danger" id="nameError"></small>
               </div>
 
- 
+              <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" />
+                <small class="text-danger" id="emailError"></small>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" />
+                <small class="text-danger" id="subjectError"></small>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5"></textarea>
+                <small class="text-danger" id="messageError"></small>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+
+            <div id="successMessage" class="alert alert-success mt-4 d-none text-center">
+              Your message has been sent successfully!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="./js/contact.js"></script>
