@@ -65,3 +65,8 @@ contactForm.addEventListener("submit", function (e) {
       message,
       date: new Date().toLocaleString()
     };
+
+  let messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+messages.push(newMessage);
+localStorage.setItem("contactMessages", JSON.stringify(messages));
+
