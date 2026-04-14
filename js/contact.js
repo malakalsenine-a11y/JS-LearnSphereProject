@@ -17,3 +17,8 @@ const toggleBtn = document.getElementById("toggle_btn");
 updateNavbarCount();
 applySavedTheme();
 
+// ===== Contact Form Validation =====
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  clearErrors();
