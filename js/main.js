@@ -173,3 +173,24 @@ function subscribeUser() {
 
   emailInput.value = "";
 }
+
+// ===== Dark Mode =====
+const toggleBtn = document.getElementById("toggle_btn");
+const body = document.body;
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  body.classList.add("dark");
+  toggleBtn.checked = true;
+}
+
+toggleBtn.addEventListener("change", () => {
+  body.classList.toggle("dark");
+
+  if (body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
