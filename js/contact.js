@@ -22,3 +22,12 @@ contactForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   clearErrors();
+
+  let isValid = true;
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const subject = subjectInput.value.trim();
+  const message = messageInput.value.trim();
+
+  
