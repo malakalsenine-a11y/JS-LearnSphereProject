@@ -13,3 +13,7 @@ const successMessage = document.getElementById("successMessage");
 const countBadge = document.getElementById("count");
 const toggleBtn = document.getElementById("toggle_btn");
 
+// ===== Update Badge + Theme =====
+updateNavbarCount();
+applySavedTheme();
+
