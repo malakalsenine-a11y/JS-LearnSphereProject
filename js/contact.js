@@ -9,3 +9,7 @@ const emailError = document.getElementById("emailError");
 const subjectError = document.getElementById("subjectError");
 const messageError = document.getElementById("messageError");
 
+const successMessage = document.getElementById("successMessage");
+const countBadge = document.getElementById("count");
+const toggleBtn = document.getElementById("toggle_btn");
+
