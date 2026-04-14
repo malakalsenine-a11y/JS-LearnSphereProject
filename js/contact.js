@@ -57,4 +57,11 @@ contactForm.addEventListener("submit", function (e) {
     isValid = false;
   }
 
-  
+  if (isValid) {
+    const newMessage = {
+      name,
+      email,
+      subject,
+      message,
+      date: new Date().toLocaleString()
+    };
