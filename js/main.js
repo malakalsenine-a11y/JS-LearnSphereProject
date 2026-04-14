@@ -156,3 +156,11 @@ function subscribeUser() {
     setTimeout(() => messageEl.style.display = "none", 3000);
     return;
   }
+
+  if (!isValidEmail(email)) {
+    messageEl.style.display = "block";
+    messageEl.style.color = "red";
+    messageEl.textContent = "Please enter a valid email address.";
+    setTimeout(() => messageEl.style.display = "none", 3000);
+    return;
+  }
