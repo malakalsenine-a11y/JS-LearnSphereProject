@@ -85,4 +85,15 @@ fetch('./data/data.json')
 
       return starsHTML;
     }
+
+    // ===== Categories =====
+    const iconMap = {
+      "Web Development": "fa-solid fa-code",
+      "Data Science": "fa-solid fa-chart-line",
+      "Design": "fa-solid fa-palette",
+      "Cybersecurity": "fa-solid fa-shield-halved",
+      "Mobile Dev": "fa-solid fa-mobile-screen",
+      "DevOps": "fa-solid fa-gears"
+    };
+
 });
