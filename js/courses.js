@@ -33,3 +33,100 @@ fetch("./data/data.json")
     console.error("Error loading courses:", error);
   });
 
+// ===== Display Courses =====
+function displayCourses(data) {
+  coursesContainer.innerHTML = "";
+
+  const enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+
+  if (data.length === 0) {
+    coursesContainer.innerHTML = `
+      <div class="col-12 text-center">
+        <p class="fs-5 text-muted">No courses found.</p>
+      </div>
+    `;
+    return;
+  }
+
+  data.forEach((course) => {
+    const isEnrolled = enrolled.some((item) => item.id === course.id);
+
+const stars = generateStars(course.rating);
+
+    const categoryColor = getCategoryColor(course.category);
+
+
+    let enrollButton = "";
+
+if (!course.available) {
+  enrollButton = `
+    <button class="btn btn-secondary" disabled>
+      Coming Soon
+    </button>
+  `;
+} else if (isEnrolled) {
+  enrollButton = `
+    <button class="btn btn-warning" disabled>
+      Enrolled ✓
+    </button>
+  `;
+} else {
+  enrollButton = `
+    <button class="btn btn-warning enroll-btn" data-id="${course.id}">
+      Enroll
+    </button>
+  `;
+}
+
+
+    coursesContainer.innerHTML += `
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-header text-white fw-bold" style="background:${categoryColor}">
+            ${course.category}
+          </div>
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">${course.title}</h5>
+            <p class="mb-1"><strong>Instructor:</strong> ${course.instructor}</p>
+
+            <div class="mb-2">
+              <span class="badge bg-secondary">${course.level}</span>
+            </div>
+
+            <p class="mb-1 text-warning fw-semibold stars">${stars} (${course.rating})</p>
+            <p class="mb-1"><i class="fa-regular fa-clock"></i> ${course.duration}</p>
+            <p class="mb-1"><i class="fa-solid fa-users"></i> ${course.studentsCount} students</p>
+            <p class="fw-bold fs-5 text-primary">$${course.price}</p>
+
+<div class="mt-auto d-grid gap-2">
+  ${enrollButton}
+
+  <a href="course-details.html?id=${course.id}" class="btn btn-outline-dark">
+    View Details
+  </a>
+</div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  addEnrollEvents();
+}
+
+function generateStars(rating) {
+  let starsHTML = "";
+  const fullStars = Math.floor(rating);
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= fullStars) {
+      starsHTML += `<i class="fa-solid fa-star"></i>`;
+    } else {
+      starsHTML += `<i class="fa-regular fa-star"></i>`;
+    }
+  }
+
+  return starsHTML;
+}
+
