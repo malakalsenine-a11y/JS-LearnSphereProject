@@ -71,3 +71,44 @@ function displayCourseDetails(course) {
     </div>
   `;
 }
+
+// ===== Display Quiz =====
+function displayQuiz(quiz) {
+  if (!quiz || quiz.length === 0) {
+    quizForm.innerHTML = `<p class="text-muted">No quiz available for this course.</p>`;
+    submitQuizBtn.style.display = "none";
+    return;
+  }
+
+  quizForm.innerHTML = "";
+
+  quiz.forEach((q, index) => {
+    quizForm.innerHTML += `
+      <div class="mb-4">
+        <h5>${index + 1}. ${q.question}</h5>
+        ${q.options.map(option => `
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="question${index}" value="${option}">
+            <label class="form-check-label">${option}</label>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  });
+}
+
+function generateStars(rating) {
+  let starsHTML = "";
+  const fullStars = Math.floor(rating);
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= fullStars) {
+      starsHTML += `<i class="fa-solid fa-star"></i>`;
+    } else {
+      starsHTML += `<i class="fa-regular fa-star"></i>`;
+    }
+  }
+
+  return starsHTML;
+}
+
