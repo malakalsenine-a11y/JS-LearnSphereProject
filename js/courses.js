@@ -150,4 +150,9 @@ function applyFilters() {
     filtered = filtered.filter((course) => course.category === selectedCategory);
   }
 
+  // Level
+  if (selectedLevel !== "All") {
+    filtered = filtered.filter((course) => course.level === selectedLevel);
+  }
+
   
