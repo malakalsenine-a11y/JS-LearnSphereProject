@@ -138,3 +138,9 @@ function applyFilters() {
   const searchValue = searchInput.value.toLowerCase().trim();
   const selectedLevel = levelFilter.value;
   const selectedSort = sortSelect.value;
+
+  // Search
+  filtered = filtered.filter((course) =>
+    course.title.toLowerCase().includes(searchValue) ||
+    course.instructor.toLowerCase().includes(searchValue)
+  );
