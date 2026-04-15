@@ -46,4 +46,28 @@ fetch("./data/data.json")
     `;
   });
 
- 
+  
+// ===== Display Course Details =====
+function displayCourseDetails(course) {
+  const stars = generateStars(course.rating);
+
+  courseDetails.innerHTML = `
+    <div class="card shadow-sm border-0 p-4">
+      <h2 class="fw-bold mb-3">${course.title}</h2>
+      <p><strong>Instructor:</strong> ${course.instructor}</p>
+      <p><strong>Category:</strong> ${course.category}</p>
+      <p><strong>Level:</strong> ${course.level}</p>
+      <p><strong>Rating:</strong> <span class="text-warning stars">${stars} (${course.rating})</span></p>
+      <p><strong>Duration:</strong> ${course.duration}</p>
+      <p><strong>Students:</strong> ${course.studentsCount}</p>
+      <p><strong>Price:</strong> <span class="text-primary fw-bold">$${course.price}</span></p>
+
+      <hr />
+
+      <h4 class="fw-bold mb-3">Topics Covered</h4>
+      <ul class="list-group">
+        ${course.topics.map(topic => `<li class="list-group-item">${topic}</li>`).join("")}
+      </ul>
+    </div>
+  `;
+}
