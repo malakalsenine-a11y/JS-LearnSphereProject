@@ -232,3 +232,18 @@ function updateNavbarCount() {
   countBadge.textContent = enrolled.length;
 }
 
+// ===== Event Listeners =====
+searchInput.addEventListener("keyup", applyFilters);
+sortSelect.addEventListener("change", applyFilters);
+levelFilter.addEventListener("change", applyFilters);
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    this.classList.add("active");
+
+    selectedCategory = this.dataset.category;
+    applyFilters();
+  });
+});
+
