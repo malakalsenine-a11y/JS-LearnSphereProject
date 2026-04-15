@@ -30,3 +30,23 @@ fetch("./data/data.json")
     `;
   });
 
+// ===== Extract Unique Instructors =====
+function extractInstructors(courses) {
+  const instructorMap = {};
+
+  courses.forEach((course) => {
+    if (!instructorMap[course.instructor]) {
+      instructorMap[course.instructor] = {
+        name: course.instructor,
+        category: course.category,
+        coursesCount: 1,
+        rating: course.rating,
+        level: course.level
+      };
+    } else {
+      instructorMap[course.instructor].coursesCount++;
+    }
+  });
+
+  return Object.values(instructorMap);
+}
