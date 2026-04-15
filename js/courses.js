@@ -155,4 +155,16 @@ function applyFilters() {
     filtered = filtered.filter((course) => course.level === selectedLevel);
   }
 
-  
+  // Sort
+  if (selectedSort === "rating") {
+    filtered.sort((a, b) => b.rating - a.rating);
+  } else if (selectedSort === "priceLow") {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (selectedSort === "priceHigh") {
+    filtered.sort((a, b) => b.price - a.price);
+  } else if (selectedSort === "duration") {
+    filtered.sort((a, b) => convertDurationToMinutes(a.duration) - convertDurationToMinutes(b.duration));
+  }
+
+  displayCourses(filtered);
+}
