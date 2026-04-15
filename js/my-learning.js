@@ -147,3 +147,20 @@ function displayStats() {
   `;
 }
 
+// ===== Remove Course =====
+function addRemoveEvents() {
+  const removeButtons = document.querySelectorAll(".remove-btn");
+
+  removeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const courseId = parseInt(this.dataset.id);
+
+      enrolledCourses = enrolledCourses.filter((course) => course.id !== courseId);
+      localStorage.setItem("enrolled", JSON.stringify(enrolledCourses));
+
+      displayMyCourses();
+      updateNavbarCount();
+    });
+  });
+}
+
