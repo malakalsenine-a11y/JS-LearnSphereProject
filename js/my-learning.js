@@ -98,3 +98,52 @@ function generateStars(rating) {
 
   return starsHTML;
 }
+
+// ===== Display Summary Stats =====
+function displayStats() {
+  const totalEnrolled = enrolledCourses.length;
+
+  let completedCourses = 0;
+  let totalScore = 0;
+  let attemptedCount = 0;
+
+  enrolledCourses.forEach((course) => {
+    const score = localStorage.getItem(`quizScore_${course.id}`);
+
+    if (score !== null) {
+      const numericScore = parseInt(score);
+      totalScore += numericScore;
+      attemptedCount++;
+
+      if (numericScore === 5) {
+        completedCourses++;
+      }
+    }
+  });
+
+  const averageScore = attemptedCount > 0 ? (totalScore / attemptedCount).toFixed(1) : 0;
+
+  statsContainer.innerHTML = `
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-0 p-4">
+        <h5 class="fw-bold">Total Enrolled</h5>
+        <p class="display-6 text-primary mb-0">${totalEnrolled}</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-0 p-4">
+        <h5 class="fw-bold">Completed Courses</h5>
+        <p class="display-6 text-success mb-0">${completedCourses}</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm border-0 p-4">
+        <h5 class="fw-bold">Average Quiz Score</h5>
+        <p class="display-6 text-warning mb-0">${averageScore}/5</p>
+      </div>
+    </div>
+  `;
+}
+
