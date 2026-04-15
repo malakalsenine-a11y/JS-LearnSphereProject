@@ -144,3 +144,10 @@ function applyFilters() {
     course.title.toLowerCase().includes(searchValue) ||
     course.instructor.toLowerCase().includes(searchValue)
   );
+
+  // Category
+  if (selectedCategory !== "All") {
+    filtered = filtered.filter((course) => course.category === selectedCategory);
+  }
+
+  
