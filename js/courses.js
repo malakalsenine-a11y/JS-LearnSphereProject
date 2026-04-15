@@ -200,3 +200,29 @@ function getCategoryColor(category) {
   }
 }
 
+// ===== Enroll Logic =====
+function addEnrollEvents() {
+  const enrollButtons = document.querySelectorAll(".enroll-btn");
+
+  enrollButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const courseId = parseInt(this.dataset.id);
+      const selectedCourse = allCourses.find((course) => course.id === courseId);
+
+      let enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+
+      const alreadyEnrolled = enrolled.some((course) => course.id === courseId);
+
+      if (!alreadyEnrolled) {
+        enrolled.push(selectedCourse);
+        localStorage.setItem("enrolled", JSON.stringify(enrolled));
+
+        this.textContent = "Enrolled ✓";
+        this.disabled = true;
+
+        updateNavbarCount();
+      }
+    });
+  });
+}
+
