@@ -50,3 +50,63 @@ function extractInstructors(courses) {
 
   return Object.values(instructorMap);
 }
+
+// ===== Display Instructors =====
+function displayInstructors(data) {
+  instructorsContainer.innerHTML = "";
+
+  if (data.length === 0) {
+    instructorsContainer.innerHTML = `
+      <div class="col-12 text-center">
+        <div class="alert alert-warning">
+          No instructors found.
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  data.forEach((instructor) => {
+    const stars = generateStars(instructor.rating);
+
+    instructorsContainer.innerHTML += `
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 text-center p-4">
+          <div class="mb-3">
+            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center"
+                 style="width: 80px; height: 80px; font-size: 30px;">
+              <i class="fa-solid fa-user"></i>
+            </div>
+          </div>
+
+          <h5 class="fw-bold">${instructor.name}</h5>
+          <p class="text-muted mb-1">${instructor.category}</p>
+          <p class="mb-1"><strong>Level:</strong> ${instructor.level}</p>
+          <p class="mb-1"><strong>Courses:</strong> ${instructor.coursesCount}</p>
+          <p class="text-warning fw-semibold stars">${stars} (${instructor.rating})</p>
+
+          <a href="courses.html?instructor=${encodeURIComponent(instructor.name)}" 
+   class="btn btn-outline-primary mt-3">
+   View Courses
+</a>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function generateStars(rating) {
+  let starsHTML = "";
+  const fullStars = Math.floor(rating);
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= fullStars) {
+      starsHTML += `<i class="fa-solid fa-star"></i>`;
+    } else {
+      starsHTML += `<i class="fa-regular fa-star"></i>`;
+    }
+  }
+
+  return starsHTML;
+}
+
