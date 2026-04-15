@@ -140,3 +140,9 @@ submitQuizBtn.addEventListener("click", function (e) {
 
 });
 
+// ===== Navbar Badge =====
+function updateNavbarCount() {
+  const enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
+  countBadge.textContent = enrolled.length;
+}
+
