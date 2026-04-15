@@ -169,3 +169,26 @@ function updateNavbarCount() {
   const enrolled = JSON.parse(localStorage.getItem("enrolled")) || [];
   countBadge.textContent = enrolled.length;
 }
+
+// ===== Dark Mode =====
+function applySavedTheme() {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    toggleBtn.checked = true;
+  } else {
+    document.body.classList.remove("dark");
+    toggleBtn.checked = false;
+  }
+}
+
+toggleBtn.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});     
