@@ -168,3 +168,13 @@ function applyFilters() {
 
   displayCourses(filtered);
 }
+
+// ===== Duration Converter =====
+function convertDurationToMinutes(duration) {
+  const match = duration.match(/(\d+)h\s*(\d+)m/);
+  if (!match) return 0;
+
+  const hours = parseInt(match[1]);
+  const minutes = parseInt(match[2]);
+  return hours * 60 + minutes;
+}
