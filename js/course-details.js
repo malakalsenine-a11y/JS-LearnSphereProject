@@ -112,3 +112,22 @@ function generateStars(rating) {
   return starsHTML;
 }
 
+// ===== Quiz Result =====
+submitQuizBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (!currentCourse) return;
+
+  let score = 0;
+
+  currentCourse.quiz.forEach((q, index) => {
+    const selected = document.querySelector(`input[name="question${index}"]:checked`);
+    if (selected && selected.value === q.answer) {
+      score++;
+    }
+  });
+
+  quizResult.innerHTML = `
+    You scored <span class="text-success">${score}</span> out of 
+    <span class="text-primary">${currentCourse.quiz.length}</span>
+  `;
