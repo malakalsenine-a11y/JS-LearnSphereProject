@@ -30,3 +30,19 @@ fetch("./data/data.json")
       `;
       return;
     }
+
+    currentCourse = course;
+    displayCourseDetails(course);
+    displayQuiz(course.quiz);
+    updateNavbarCount();
+    applySavedTheme();
+  })
+  .catch((error) => {
+    console.error("Error loading course details:", error);
+    courseDetails.innerHTML = `
+      <div class="alert alert-danger text-center">
+        Error loading course details.
+      </div>
+    `;
+  });
+
