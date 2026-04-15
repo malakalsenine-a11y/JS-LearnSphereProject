@@ -131,3 +131,12 @@ submitQuizBtn.addEventListener("click", function (e) {
     You scored <span class="text-success">${score}</span> out of 
     <span class="text-primary">${currentCourse.quiz.length}</span>
   `;
+
+  // Save score in localStorage
+  localStorage.setItem(`quizScore_${currentCourse.id}`, score);
+
+  submitQuizBtn.disabled = true;
+  submitQuizBtn.textContent = "Quiz Submitted ✓";
+
+});
+
