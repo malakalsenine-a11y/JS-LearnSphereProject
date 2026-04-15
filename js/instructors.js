@@ -110,3 +110,13 @@ function generateStars(rating) {
   return starsHTML;
 }
 
+// ===== Search Instructors =====
+instructorSearch.addEventListener("keyup", function () {
+  const value = this.value.toLowerCase().trim();
+
+  const filtered = allInstructors.filter((instructor) =>
+    instructor.name.toLowerCase().includes(value)
+  );
+
+  displayInstructors(filtered);
+});
