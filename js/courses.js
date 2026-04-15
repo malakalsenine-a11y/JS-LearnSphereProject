@@ -178,3 +178,25 @@ function convertDurationToMinutes(duration) {
   const minutes = parseInt(match[2]);
   return hours * 60 + minutes;
 }
+
+
+// ===== Category Colors =====
+function getCategoryColor(category) {
+  switch (category) {
+    case "Web Development":
+      return "#6f42c1";
+    case "Data Science":
+      return "#0d6efd";
+    case "Design":
+      return "#d63384";
+    case "Cybersecurity":
+      return "#dc3545";
+    case "Mobile Dev":
+      return "#198754";
+    case "DevOps":
+      return "#fd7e14";
+    default:
+      return "#6c757d";
+  }
+}
+
