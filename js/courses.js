@@ -130,3 +130,11 @@ function generateStars(rating) {
   return starsHTML;
 }
 
+
+// ===== Search + Filters + Sort =====
+function applyFilters() {
+  let filtered = [...allCourses];
+
+  const searchValue = searchInput.value.toLowerCase().trim();
+  const selectedLevel = levelFilter.value;
+  const selectedSort = sortSelect.value;
